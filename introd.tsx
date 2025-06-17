@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { use, useEffect, useRef } from "react"
+import { useRouter } from "next/navigation"
 
 const COLOR = "#FFFFFF"
 const HIT_COLOR = "#333333"
@@ -11,34 +12,6 @@ const LETTER_SPACING = 1
 const WORD_SPACING = 3
 
 const PIXEL_MAP = {
-  P: [
-    [1, 1, 1, 1],
-    [1, 0, 0, 1],
-    [1, 1, 1, 1],
-    [1, 0, 0, 0],
-    [1, 0, 0, 0],
-  ],
-  R: [
-    [1, 1, 1, 1],
-    [1, 0, 0, 1],
-    [1, 1, 1, 1],
-    [1, 0, 1, 0],
-    [1, 0, 0, 1],
-  ],
-  O: [
-    [1, 1, 1, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [1, 1, 1, 1],
-  ],
-  M: [
-    [1, 0, 0, 0, 1],
-    [1, 1, 0, 1, 1],
-    [1, 0, 1, 0, 1],
-    [1, 0, 0, 0, 1],
-    [1, 0, 0, 0, 1],
-  ],
   T: [
     [1, 1, 1, 1, 1],
     [0, 0, 1, 0, 0],
@@ -59,13 +32,6 @@ const PIXEL_MAP = {
     [1, 0, 1, 0, 1],
     [1, 0, 0, 1, 1],
     [1, 0, 0, 0, 1],
-  ],
-  G: [
-    [1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0],
-    [1, 0, 1, 1, 1],
-    [1, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1],
   ],
   S: [
     [1, 1, 1, 1],
@@ -149,13 +115,19 @@ interface Paddle {
   isVertical: boolean
 }
 
-export function PromptingIsAllYouNeed() {
+export function Introduction() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pixelsRef = useRef<Pixel[]>([])
   const ballRef = useRef<Ball>({ x: 0, y: 0, dx: 0, dy: 0, radius: 0 })
   const paddlesRef = useRef<Paddle[]>([])
   const scaleRef = useRef(1)
   const stateRef = useRef<"intro" | "game">("intro")
+  const router = useRouter()
+  useEffect(()=>{
+    setTimeout(() => {
+        router.push("/home")
+    }, 20000);
+  })
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -178,7 +150,7 @@ export function PromptingIsAllYouNeed() {
       const BALL_SPEED = 6 * scale
 
       pixelsRef.current = []
-      const words = ["HI THIS IS EDEN", "click to continue"]
+      const words = ["HI THIS IS EDEN"]
 
       const calculateWordWidth = (word: string, pixelSize: number) => {
         return (
@@ -191,77 +163,40 @@ export function PromptingIsAllYouNeed() {
       }
 
       const totalWidthLarge = calculateWordWidth(words[0], LARGE_PIXEL_SIZE)
-      const totalWidthSmall = words[1].split(" ").reduce((width, word, index) => {
-        return width + calculateWordWidth(word, SMALL_PIXEL_SIZE) + (index > 0 ? WORD_SPACING * SMALL_PIXEL_SIZE : 0)
-      }, 0)
-      const totalWidth = Math.max(totalWidthLarge, totalWidthSmall)
+      const totalWidth = totalWidthLarge
       const scaleFactor = (canvas.width * 0.8) / totalWidth
 
       const adjustedLargePixelSize = LARGE_PIXEL_SIZE * scaleFactor
-      const adjustedSmallPixelSize = SMALL_PIXEL_SIZE * scaleFactor
 
       const largeTextHeight = 5 * adjustedLargePixelSize
-      const smallTextHeight = 5 * adjustedSmallPixelSize
-      const spaceBetweenLines = 5 * adjustedLargePixelSize
-      const totalTextHeight = largeTextHeight + spaceBetweenLines + smallTextHeight
+      const totalTextHeight = largeTextHeight
 
       let startY = (canvas.height - totalTextHeight) / 2
 
       words.forEach((word, wordIndex) => {
-        const pixelSize = wordIndex === 0 ? adjustedLargePixelSize : adjustedSmallPixelSize
-        const totalWidth =
-          wordIndex === 0
-            ? calculateWordWidth(word, adjustedLargePixelSize)
-            : words[1].split(" ").reduce((width, w, index) => {
-                return (
-                  width +
-                  calculateWordWidth(w, adjustedSmallPixelSize) +
-                  (index > 0 ? WORD_SPACING * adjustedSmallPixelSize : 0)
-                )
-              }, 0)
+        const pixelSize = adjustedLargePixelSize
+        const totalWidth = calculateWordWidth(word, adjustedLargePixelSize)
 
         let startX = (canvas.width - totalWidth) / 2
 
-        if (wordIndex === 1) {
-          word.split(" ").forEach((subWord) => {
-            subWord.split("").forEach((letter) => {
-              const pixelMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]
-              if (!pixelMap) return
+        word.split(" ").forEach((subWord) => {
+          subWord.split("").forEach((letter) => {
+            const pixelMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]
+            if (!pixelMap) return
 
-              for (let i = 0; i < pixelMap.length; i++) {
-                for (let j = 0; j < pixelMap[i].length; j++) {
-                  if (pixelMap[i][j]) {
-                    const x = startX + j * pixelSize
-                    const y = startY + i * pixelSize
-                    pixelsRef.current.push({ x, y, size: pixelSize, hit: false })
-                  }
+            for (let i = 0; i < pixelMap.length; i++) {
+              for (let j = 0; j < pixelMap[i].length; j++) {
+                if (pixelMap[i][j]) {
+                  const x = startX + j * pixelSize
+                  const y = startY + i * pixelSize
+                  pixelsRef.current.push({ x, y, size: pixelSize, hit: false })
                 }
               }
-              startX += (pixelMap[0].length + LETTER_SPACING) * pixelSize
-            })
-            startX += WORD_SPACING * adjustedSmallPixelSize
+            }
+            startX += (pixelMap[0].length + LETTER_SPACING) * pixelSize
           })
-        } else {
-          word.split(" ").forEach((subWord) => {
-            subWord.split("").forEach((letter) => {
-              const pixelMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]
-              if (!pixelMap) return
-
-              for (let i = 0; i < pixelMap.length; i++) {
-                for (let j = 0; j < pixelMap[i].length; j++) {
-                  if (pixelMap[i][j]) {
-                    const x = startX + j * pixelSize
-                    const y = startY + i * pixelSize
-                    pixelsRef.current.push({ x, y, size: pixelSize, hit: false })
-                  }
-                }
-              }
-              startX += (pixelMap[0].length + LETTER_SPACING) * pixelSize
-            })
-            startX += WORD_SPACING * pixelSize
-          })
-        }
-        startY += wordIndex === 0 ? largeTextHeight + spaceBetweenLines : 0
+          startX += WORD_SPACING * pixelSize
+        })
       })
 
       // Initialize ball position near the top right corner
@@ -382,6 +317,7 @@ export function PromptingIsAllYouNeed() {
         }
       })
     }
+  
 
     const drawGame = () => {
       if (!ctx) return
@@ -422,6 +358,7 @@ export function PromptingIsAllYouNeed() {
         // Reset the game state for a fresh start
         pixelsRef.current = []
         // Initialize ball position in the center
+        const BALL_SPEED = 6 * scaleRef.current
         ballRef.current = {
           x: canvas.width / 2,
           y: canvas.height / 2,
@@ -440,12 +377,45 @@ export function PromptingIsAllYouNeed() {
   }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full"
-      aria-label="Prompting Is All You Need: Fullscreen Pong game with pixel text"
-    />
+    <div className="relative">
+      <canvas
+        ref={canvasRef}
+        className="fixed top-0 left-0 w-full h-full"
+        aria-label="Introduction: Fullscreen Pong game with pixel text"
+      />
+      <div className="  h-screen  flex items-center justify-center ">
+        <div className="flex flex-col items-center justify-end mb-24 h-full w-full">
+          <button
+            onClick={() => {
+              if (stateRef.current === "intro") {
+                stateRef.current = "game"
+                
+                pixelsRef.current = []
+               
+                const BALL_SPEED = 6 * scaleRef.current
+                ballRef.current = {
+                  x: canvasRef.current!.width / 2,
+                  y: canvasRef.current!.height / 2,
+                  dx: BALL_SPEED * (Math.random() > 0.5 ? 1 : -1),
+                  dy: BALL_SPEED * (Math.random() > 0.5 ? 1 : -1),
+                  radius: ballRef.current.radius,
+                }
+                // Navigate to home page
+                router.push('/home')
+              }
+            }}
+            className="relative px-8 py-3 text-white border-2 border-white rounded-2xl overflow-hidden group"
+          >
+            <span className="relative z-10">Continue</span>
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+          <div className="absolute -inset-1 rounded-2xl">
+            <div className="absolute inset-0 border-2 border-white rounded-2xl animate-spin-slow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
-export default PromptingIsAllYouNeed
+export default Introduction 

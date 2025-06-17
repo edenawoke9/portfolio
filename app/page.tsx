@@ -1,5 +1,11 @@
-import { PromptingIsAllYouNeed } from "../prompting"
+
+import {Introduction} from "../introd"
+import Link from "next/link"
 
 export default function Home() {
-  return <PromptingIsAllYouNeed />
+  return (
+    <div>
+      <Introduction />
+    </div>
+  )
 }
