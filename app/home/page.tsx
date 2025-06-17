@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import About from '../pages/about/page'
 import Project from '../pages/projects/page'
 import Contact from '../pages/contact/page'
+import SplineScene from '../components/SplineScene'
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -19,6 +20,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 bg-black/80 backdrop-blur-sm border-b border-white/20 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,24 +116,14 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="pt-16">
+      <SplineScene />
         {/* Home Section */}
-        <section id="home" className="min-h-screen flex flex-col items-center justify-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+       
+          <div className="flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold mb-8">HI THIS IS EDEN</h1>
-            <div className="relative">
-              <button
-                onClick={() => scrollToSection('about')}
-                className="relative px-8 py-3 text-white border-2 border-white rounded-2xl overflow-hidden group"
-              >
-                <span className="relative z-10">Continue</span>
-                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-              <div className="absolute -inset-1 rounded-2xl">
-                <div className="absolute inset-0 border-2 border-white rounded-2xl animate-spin-slow"></div>
-              </div>
-            </div>
+         
           </div>
-        </section>
+      
 
         {/* About Section */}
         <div id="about"><About/></div>
