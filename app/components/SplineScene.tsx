@@ -4,10 +4,8 @@ import Spline from '@splinetool/react-spline/next';
 
 export default function SplineScene() {
   return (
-    <div className="w-full h-screen fixed top-0 left-0 z-0">
-      <Spline
-        scene="https://prod.spline.design/7C4NRj46JpQ6qnEb/scene.splinecode" 
-      />
+    <div className="w-1/2 h-screen ">
+      <iframe src='https://my.spline.design/genkubgreetingrobot-3fJOZuntb56QmvGlSyy1asev/' frameBorder='0' width='100%' height='100%'></iframe>
     </div>
   );
 } 

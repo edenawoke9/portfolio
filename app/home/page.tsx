@@ -7,7 +7,7 @@ import Project from '../pages/projects/page'
 import Contact from '../pages/contact/page'
 import SplineScene from '../components/SplineScene'
 
-export default function Home() {
+export default function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const scrollToSection = (id: string) => {
@@ -116,13 +116,15 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="pt-16">
-      <SplineScene />
+     
         {/* Home Section */}
        
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex  items-center justify-between">
             <h1 className="text-4xl font-bold mb-8">HI THIS IS EDEN</h1>
+            <SplineScene/>
          
           </div>
+         
       
 
         {/* About Section */}
