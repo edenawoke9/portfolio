@@ -120,7 +120,7 @@ export default function HomePage() {
         {/* Home Section */}
        
           <div className="flex  items-center justify-between">
-            <h1 className="text-4xl font-bold mb-8">HI THIS IS EDEN</h1>
+          <div id="about"><About/></div>
             <SplineScene/>
          
           </div>
@@ -128,7 +128,7 @@ export default function HomePage() {
       
 
         {/* About Section */}
-        <div id="about"><About/></div>
+       
 
         {/* Projects Section */}
         <div id="project"><Project/></div>
