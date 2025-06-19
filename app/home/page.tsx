@@ -119,8 +119,8 @@ export default function HomePage() {
      
         {/* Home Section */}
        
-          <div className="flex  items-center justify-between">
-          <div id="about"><About/></div>
+          <div className="flex  items-center justify-center">
+          {/* <div id="about"><About/></div> */}
             <SplineScene/>
          
           </div>
