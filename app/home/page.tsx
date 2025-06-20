@@ -41,7 +41,7 @@ export default function HomePage() {
                 onClick={() => scrollToSection('home')}
                 className="text-xl font-bold hover:text-white/80 transition-colors duration-200"
               >
-                EDEN
+                {'< EDEN AWOKE />'}
               </button>
             </div>
             
@@ -128,7 +128,7 @@ export default function HomePage() {
       <main className="pt-16 flex flex-col">
      
         {/* Home Section */}
-        <section ref={heroRef} className="relative bg-black z-50 flex flex-row items-center justify-center w-full min-h-screen gap-8 px-8">
+        <section ref={heroRef} className="relative bg-black z-40 flex flex-row items-center justify-center w-full min-h-screen gap-8 px-8">
           <div className="flex-1 flex items-center justify-center h-full">
             <div className='relative w-screen ml-72 flex justify-end  items-center'>
                 <SplineScene/>
@@ -145,11 +145,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div id="about" className='z-50 relative bg-black'><About/></div>
+        <div id="about" className='z-40 relative bg-black'><About/></div>
        
 
         
-        <section id="projects" className="relative min-h-screen bg-black py-20 z-50">
+        <section id="projects" className="relative min-h-screen bg-black py-20 z-40">
           <div className="">
             <div className="relative flex flex-col items-center justify-center py-12" style={{ perspective: '1000px' }}>
               <Project />

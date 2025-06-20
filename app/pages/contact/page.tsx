@@ -16,9 +16,9 @@ export default function Contact() {
 }
 export function Component() {
   return (
-    <div className=" relative flex  flex-col text-black bg-white/50">
-        <div className="m-auto w-full pt-10 px-6">
-          <h1 className="text-3xl font-bold  md:text-4xl">
+    <div className=" relative flex  flex-col text-black bg-white/80">
+        <div className="m-auto w-full pt-10 px-6 flex justify-between mb-10">
+          <div>  <h1 className="text-3xl font-bold  md:text-4xl">
             Contact
           </h1>
           <p className="mt-4 text-lg ">
@@ -26,20 +26,22 @@ export function Component() {
             to reach out!
           </p>
           <a
-            href="mailto:edenawoke@gmail.com"
-            className="mt-8 inline-block rounded-lg bg-green-600 px-7 py-3 font-semibold text-white shadow transition-colors hover:bg-green-700"
+            href="mailto:awokeeden9@gmail.com"
+            className="mt-8 inline-block rounded-lg px-7 py-3 font-semibold text-black shadow transition-colors"
           >
-            edenawoke@gmail.com
+            awokeeden9@gmail.com
           </a>
+          </div>
+         
           <div className="mt-10">
-            <span className="mb-2 block font-medium text-gray-300">
+            <span className="mb-2 block font-medium text-black-300">
               Find me on:
             </span>
             <div className="flex gap-6">
               <a
                 href="#"
                 aria-label="Telegram"
-                className="flex items-center gap-2 text-gray-200 transition-colors hover:text-green-500"
+                className="flex items-center gap-2 text-black-200 transition-colors hover:text-green-500"
               >
                 <svg
                   width="22"
@@ -60,7 +62,7 @@ export function Component() {
               <a
                 href="#"
                 aria-label="Github"
-                className="flex items-center gap-2 text-gray-200 transition-colors hover:text-green-500"
+                className="flex items-center gap-2 text-black-200 transition-colors hover:text-green-500"
               >
                 <svg
                   width="22"
@@ -81,7 +83,7 @@ export function Component() {
               <a
                 href="#"
                 aria-label="Linkedin"
-                className="flex items-center gap-2 text-gray-200 transition-colors hover:text-green-500"
+                className="flex items-center gap-2 text-black-200 transition-colors hover:text-green-500"
               >
                 <svg
                   width="22"
@@ -110,7 +112,7 @@ export function Component() {
           </div>
         </div>
         <footer className="w-full px-6 pb-4">
-          <span className="text-sm text-gray-400">Eden Awoke © 2024</span>
+          <span className="text-sm text-black-400">Eden Awoke © 2024</span>
         </footer>
       </div>
   );
