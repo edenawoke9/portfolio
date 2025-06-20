@@ -1,7 +1,8 @@
 "use client"
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import About from '../pages/about/page'
 import Project from '../pages/projects/page'
 import Contact from '../pages/contact/page'
@@ -18,11 +19,20 @@ export default function HomePage() {
     }
   }
 
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <div className=" bg-black text-white">
+    <div className=" bg-black  text-white">
       
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 bg-black/80 backdrop-blur-sm border-b border-white/20 z-50">
+      <nav className="fixed top-0  left-0 right-0 bg-transparent backdrop-blur-sm border-b border-white/10 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Name */}
@@ -115,37 +125,48 @@ export default function HomePage() {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-16">
+      <main className="pt-16 flex flex-col">
      
         {/* Home Section */}
-        <section className="flex flex-row items-center justify-center w-full min-h-screen gap-8 px-8">
-          {/* Left Text */}
-          
-          {/* Center Spline Animation */}
+        <section ref={heroRef} className="relative bg-black z-50 flex flex-row items-center justify-center w-full min-h-screen gap-8 px-8">
           <div className="flex-1 flex items-center justify-center h-full">
+            <div className='relative w-screen ml-72 flex justify-end  items-center'>
+                <SplineScene/>
+            </div>
           
-          <div className='relative w-screen ml-72 flex justify-end  items-center'><SplineScene/></div>
-          
-          <div className="text-8xl absolute left-0 md:text-8xl ml-20 flex flex-col  font-extrabold mb-4">
-            <h1>Minimalist</h1>
-            <span className="ml-12">& Creative</span>
-            <span className="ml-72 text-3xl">Web Developer</span>
+            <motion.div 
+              className="text-8xl absolute left-0 md:text-8xl ml-20 flex flex-col font-extrabold mb-4"
+              style={{ y, opacity }}
+            >
+              <h1>Minimalist</h1>
+              <span className="ml-12">& Creative</span>
+              <span className="ml-72 text-3xl">Web Developer</span>
+            </motion.div>
           </div>
-            
-           
-          </div>
-          {/* Right Text */}
-          
         </section>
 
-        {/* About Section */}
+        <div id="about" className='z-50 relative bg-black'><About/></div>
        
 
-        {/* Projects Section */}
-        <div id="project"><Project/></div>
+        
+        <section id="projects" className="relative min-h-screen bg-black py-20 z-50">
+          <div className="">
+            <div className="relative flex flex-col items-center justify-center py-12" style={{ perspective: '1000px' }}>
+              <Project />
+            </div>
+          </div>
+        </section>
+        <footer
+          id="contact"
+          
+        >
+          
+            <Contact />
+          
+        </footer>
 
-        {/* Contact Section */}
-        <div id="contact"><Contact/></div>
+        
+        
       </main>
     </div>
   )
