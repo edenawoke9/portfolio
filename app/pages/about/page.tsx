@@ -38,7 +38,7 @@ export default function About() {
     };
 
     return (
-        <section className="min-h-screen w-full relative overflow-hidden flex items-center justify-center bg-black">
+        <section className="w-full relative overflow-hidden flex items-center justify-center bg-black">
             <div className="relative w-full max-w-7xl h-[600px] flex items-center justify-center">
                 {slides.map((slide, index) => (
                     <div

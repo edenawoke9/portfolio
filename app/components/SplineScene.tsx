@@ -4,8 +4,10 @@ import Spline from '@splinetool/react-spline/next';
 
 export default function SplineScene() {
   return (
-    <div className="w-1/2 z-20 h-screen ">
-      <iframe src='https://my.spline.design/genkubgreetingrobot-3fJOZuntb56QmvGlSyy1asev/' frameBorder='0' width='100%' height='100%'></iframe>
-    </div>
+    <div className=" h-screen w-screen">
+   
+
+      <iframe src='https://my.spline.design/robotfollowcursorforlandingpage-spIeGE58jaUbecxWB8El0JuG/'  width='100%' height='100%'></iframe>
+      </div>
   );
 } 

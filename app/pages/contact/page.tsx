@@ -2,7 +2,7 @@
 
 export default function Contact() {
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#7b7be6] via-[#a8a8f0] to-[#b3a7f6] py-12 px-2">
+    <section id="contact" className="min-h-screen flex items-center justify-center bg-black py-12 px-2">
       <div
         className="relative w-full mx-auto flex flex-col md:flex-row items-stretch bg-white p-12"
         style={{

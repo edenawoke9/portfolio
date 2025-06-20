@@ -19,7 +19,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className=" bg-black text-white">
       
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 bg-black/80 backdrop-blur-sm border-b border-white/20 z-50">
@@ -118,14 +118,25 @@ export default function HomePage() {
       <main className="pt-16">
      
         {/* Home Section */}
-       
-          <div className="flex  items-center justify-center">
-          {/* <div id="about"><About/></div> */}
-            <SplineScene/>
-         
+        <section className="flex flex-row items-center justify-center w-full min-h-screen gap-8 px-8">
+          {/* Left Text */}
+          
+          {/* Center Spline Animation */}
+          <div className="flex-1 flex items-center justify-center h-full">
+          
+          <div className='relative w-screen ml-72 flex justify-end  items-center'><SplineScene/></div>
+          
+          <div className="text-8xl absolute left-0 md:text-8xl ml-20 flex flex-col  font-extrabold mb-4">
+            <h1>Minimalist</h1>
+            <span className="ml-12">& Creative</span>
+            <span className="ml-72 text-3xl">Web Developer</span>
           </div>
-         
-      
+            
+           
+          </div>
+          {/* Right Text */}
+          
+        </section>
 
         {/* About Section */}
        
