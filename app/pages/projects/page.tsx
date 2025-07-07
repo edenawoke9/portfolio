@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 // Define the Project type
 interface ProjectType {
@@ -15,46 +16,62 @@ interface ProjectType {
 export default function Project() {
     const projects: ProjectType[] = [
         {
-            number: "1",
-            title: "Bingo Card Design",
-            description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-            image: "/bingo-card.jpg",
-            techStack: ["React", "TailwindCSS", "Next.js"],
-            github: "https://github.com/yourusername/bingo-card-design"
+            "number": "1",
+            "title": "Instagram Clone",
+            "description": "A full-stack social media application emulating the core features of Instagram, including user authentication, posts, comments, and follows.",
+            "image": "/ig.png",
+            "techStack": ["Next.js", "React", "Tailwind CSS", "Ruby on Rails", "PostgreSQL"],
+            "github": "https://github.com/yourusername/instagram-clone"
         },
         {
-            number: "2",
-            title: "Mockup Stationery",
-            description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-            image: "/mockup-stationery.jpg",
-            techStack: ["Figma", "Photoshop"],
-            github: "https://github.com/yourusername/mockup-stationery"
+            "number": "2",
+            "title": "Candy Crush Telegram Mini-App",
+            "description": "A recreation of the classic Candy Crush game, built as a Telegram Mini-App to be played directly within the Telegram messenger.",
+            "image": "/candycursh.png",
+            "techStack": ["React", "TypeScript", "Node.js", "Telegram Mini-App API"],
+            "github": "https://github.com/yourusername/candy-crush-telegram"
         },
         {
-            number: "3",
-            title: "El Trompo",
-            description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-            image: "/el-trompo.jpg",
-            techStack: ["Illustrator", "SVG"],
-            github: "https://github.com/yourusername/el-trompo"
+            "number": "3",
+            "title": "Tewanay Client Website",
+            "description": "A polished and responsive informational website built for a client to establish their online presence and communicate their brand message.",
+            "image": "/tewanay.png",
+            "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+            "github": "https://github.com/yourusername/tewanay-website"
         },
         {
-            number: "4",
-            title: "Another Project",
-            description: "Description for another project.",
-            image: "/bingo-card.jpg",
-            techStack: ["HTML", "CSS", "JavaScript"],
-            github: "https://github.com/yourusername/another-project"
+            "number": "4",
+            "title": "CPU Scheduling Visualizer",
+            "description": "An algorithmic simulator that visualizes the Round Robin CPU scheduling process, designed to help understand operating system concepts.",
+            "image": "/cpu.png",
+            "techStack": ["Python", "Tkinter"],
+            "github": "https://github.com/yourusername/cpu-scheduler-visualizer"
         },
         {
-            number: "5",
-            title: "Fifth Project",
-            description: "This is the fifth project in the carousel.",
-            image: "/mockup-stationery.jpg",
-            techStack: ["React", "Node.js"],
-            github: "https://github.com/yourusername/fifth-project"
+            "number": "5",
+            "title": "Besenbet E-commerce",
+            "description": "A niche e-commerce platform dedicated to Christian books and products, featuring a complete shopping cart, product management, and checkout system.",
+            "image": "/shop.png",
+            "techStack": ["Next.js", "React", "Node.js", "TypeScript", "MongoDB"],
+            "github": "https://github.com/yourusername/besenbet-ecommerce"
+        },
+        {
+            "number": "6",
+            "title": "AAU Student Test Bank",
+            "description": "An interactive test bank platform for Addis Ababa University students to practice with past exam questions and test their knowledge.",
+            "image": "/cs.png",
+            "techStack": ["React", "JavaScript", "Firebase", "HTML", "CSS"],
+            "github": "https://github.com/yourusername/aau-test-bank"
+        },
+        {
+            "number": "7",
+            "title": "Hunt Software Consultancy Website",
+            "description": "A professional and modern corporate website developed for a client, Hunt Software Consultancy, to showcase their services and portfolio.",
+            "image": "/hunt.png",
+            "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+            "github": "https://github.com/yourusername/hunt-consultancy"
         }
-    ];
+    ]
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [modalProject, setModalProject] = useState<ProjectType | null>(null);
@@ -134,8 +151,7 @@ export default function Project() {
                                         {/* Image Card */}
                                         <div className="bg-white/90 rounded-2xl p-4 shadow-lg">
                                             <div className="aspect-[4/3] relative overflow-hidden rounded-lg">
-                                                {/* Replace with actual image */}
-                                                <div className="absolute inset-0 bg-black/5"></div>
+                                               <Image src={project.image} width={200} height={200} alt="project.name" className='w-full h-full'/>
                                             </div>
                                         </div>
 

@@ -386,24 +386,7 @@ export function Introduction() {
       <div className="  h-screen  flex items-center justify-center ">
         <div className="flex flex-col items-center justify-end mb-24 h-full w-full">
           <button
-            onClick={() => {
-              if (stateRef.current === "intro") {
-                stateRef.current = "game"
-                
-                pixelsRef.current = []
-               
-                const BALL_SPEED = 6 * scaleRef.current
-                ballRef.current = {
-                  x: canvasRef.current!.width / 2,
-                  y: canvasRef.current!.height / 2,
-                  dx: BALL_SPEED * (Math.random() > 0.5 ? 1 : -1),
-                  dy: BALL_SPEED * (Math.random() > 0.5 ? 1 : -1),
-                  radius: ballRef.current.radius,
-                }
-                // Navigate to home page
-                router.push('/home')
-              }
-            }}
+            onClick={() => {router.push("/home")}}
             className="relative px-8 py-3 text-white border-2 border-white rounded-2xl overflow-hidden group"
           >
             <span className="relative z-10">Continue</span>
