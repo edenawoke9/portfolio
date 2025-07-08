@@ -59,7 +59,7 @@ export function Component() {
 
           <div className="flex gap-6">
             <a
-              href="#"
+              href="@Panther_a"
               aria-label="Telegram"
               className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-500 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
               style={{ animationDelay: "1s" }}
@@ -83,7 +83,7 @@ export function Component() {
             </a>
 
             <a
-              href="#"
+              href="https://github.com/edenawoke9"
               aria-label="Github"
               className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-500 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
               style={{ animationDelay: "1.2s" }}
@@ -107,7 +107,7 @@ export function Component() {
             </a>
 
             <a
-              href="#"
+              href="https://www.linkedin.com/in/eden-awoke-581495297/"
               aria-label="Linkedin"
               className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-500 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
               style={{ animationDelay: "1.4s" }}
