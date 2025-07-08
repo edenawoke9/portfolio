@@ -31,7 +31,8 @@ export default function About() {
         "React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Python", "Django", "PostgreSQL"
     ];
 
-    return <div><div className="flex  ml-8 mt-20 justify-center">
+    return <div>
+        <div className="flex   ml-8 mt-20 justify-center">
         <div>
             <h1 className="text-2xl">About</h1>
         </div>
