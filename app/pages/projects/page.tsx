@@ -27,7 +27,7 @@ export default function Project() {
             "number": "2",
             "title": "Candy Crush Telegram Mini-App",
             "description": "A recreation of the classic Candy Crush game, built as a Telegram Mini-App to be played directly within the Telegram messenger.",
-            "image": "/candycursh.png",
+            "image": "/candycrush.png",
             "techStack": ["React", "TypeScript", "Node.js", "Telegram Mini-App API"],
             "github": "https://github.com/yourusername/candy-crush-telegram"
         },
@@ -43,7 +43,7 @@ export default function Project() {
             "number": "4",
             "title": "CPU Scheduling Visualizer",
             "description": "An algorithmic simulator that visualizes the Round Robin CPU scheduling process, designed to help understand operating system concepts.",
-            "image": "/cpu.png",
+            "image": "/cpu.jpeg",
             "techStack": ["Python", "Tkinter"],
             "github": "https://github.com/yourusername/cpu-scheduler-visualizer"
         },
@@ -93,7 +93,7 @@ export default function Project() {
     };
 
     return (
-        <section className="min-h-screen bg-black   py-20">
+        <section className="min-h-screen flex flex-col items-center justify-center bg-black w-full  py-20">
             <div className="max-w-7xl mx-auto px-4">
             <div className="relative">
                     <h2 className="text-8xl sm:text-[290px] font-serif text-white opacity-40 flex justify-center tracking-tight leading-none">
@@ -128,7 +128,6 @@ export default function Project() {
                             opacity = 0.3;
                         }
 
-
                         return (
                             <div
                                 key={project.number}
@@ -141,20 +140,37 @@ export default function Project() {
                                 }}
                             >
                                 <div className={`bg-white opacity-70 rounded-3xl p-8 relative min-h-[500px] w-[400px] group`}>
+                                    {/* Render navigation buttons only for the active (middle) card */}
+                                    {offset === 0 && (
+                                        <>
+                                            <button
+                                                onClick={prevProject}
+                                                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow"
+                                                aria-label="Previous Project"
+                                            >
+                                                &larr;
+                                            </button>
+                                            <button
+                                                onClick={nextProject}
+                                                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full shadow  flex items-center justify-center w-12 h-12"
+                                                aria-label="Next Project"
+                                            >
+                                                &rarr;
+                                            </button>
+                                        </>
+                                    )}
                                     {/* Project Number */}
                                     <div className="absolute z-50 -left-0 -top-4 text-[120px] font-serif text-black/10">
                                         {project.number}
                                     </div>
-
                                     {/* Content Container */}
                                     <div className="relative z-10 h-full flex flex-col">
                                         {/* Image Card */}
                                         <div className="bg-white/90 rounded-2xl p-4 shadow-lg">
                                             <div className="aspect-[4/3] relative overflow-hidden rounded-lg">
-                                               <Image src={project.image} width={200} height={200} alt="project.name" className='w-full h-full'/>
+                                               <Image src={project.image} width={200} height={200} alt="project.name"  className='w-full h-full object-contain opacity-100'/>
                                             </div>
                                         </div>
-
                                         {/* Text Content */}
                                         <div className="mt-8">
                                             <h3 className="text-2xl font-serif mb-4">{project.title}</h3>
@@ -176,14 +192,10 @@ export default function Project() {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex justify-center items-center mt-12 space-x-4">
-                    <button onClick={prevProject} className="text-white text-4xl font-mono p-2 hover:text-gray-400 transition-colors">
-                        &larr;
-                    </button>
-                    <button onClick={nextProject} className="text-white text-4xl font-mono p-2 hover:text-gray-400 transition-colors">
-                        &rarr;
-                    </button>
-                </div>
+                
+                    
+                    
+                
 
                 {/* Modal */}
                 {modalProject && (

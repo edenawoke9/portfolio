@@ -29,7 +29,7 @@ export default function HomePage() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <div className=" bg-black  text-white">
+    <div className=" bg-black w-screen overflow-x-hidden  text-white">
       
       {/* Navigation Bar */}
       <nav className="fixed top-0  left-0 right-0 bg-transparent backdrop-blur-sm border-b border-white/10 z-50">
