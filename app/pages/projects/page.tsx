@@ -21,7 +21,7 @@ export default function Project() {
             "description": "A full-stack social media application emulating the core features of Instagram, including user authentication, posts, comments, and follows.",
             "image": "/ig.png",
             "techStack": ["Next.js", "React", "Tailwind CSS", "Ruby on Rails", "PostgreSQL"],
-            "github": "https://github.com/yourusername/instagram-clone"
+            "github": "https://instagram-clone-t21l.vercel.app/login"
         },
         {
             "number": "2",
@@ -29,7 +29,7 @@ export default function Project() {
             "description": "A recreation of the classic Candy Crush game, built as a Telegram Mini-App to be played directly within the Telegram messenger.",
             "image": "/candycrush.png",
             "techStack": ["React", "TypeScript", "Node.js", "Telegram Mini-App API"],
-            "github": "https://github.com/yourusername/candy-crush-telegram"
+            "github": "https://t.me/PlayCCrushBot"
         },
         {
             "number": "3",
@@ -37,7 +37,7 @@ export default function Project() {
             "description": "A polished and responsive informational website built for a client to establish their online presence and communicate their brand message.",
             "image": "/tewanay.png",
             "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-            "github": "https://github.com/yourusername/tewanay-website"
+            "github": "https://www.tewanay.com/"
         },
         {
             "number": "4",
@@ -45,7 +45,7 @@ export default function Project() {
             "description": "An algorithmic simulator that visualizes the Round Robin CPU scheduling process, designed to help understand operating system concepts.",
             "image": "/cpu.jpeg",
             "techStack": ["Python", "Tkinter"],
-            "github": "https://github.com/yourusername/cpu-scheduler-visualizer"
+            "github": "https://github.com/edenawoke9/Round-robin-Simulator-"
         },
         {
             "number": "5",
@@ -53,7 +53,7 @@ export default function Project() {
             "description": "A niche e-commerce platform dedicated to Christian books and products, featuring a complete shopping cart, product management, and checkout system.",
             "image": "/shop.png",
             "techStack": ["Next.js", "React", "Node.js", "TypeScript", "MongoDB"],
-            "github": "https://github.com/yourusername/besenbet-ecommerce"
+            "github": "https://github.com/edenawoke9/Besenbet-front-end"
         },
         {
             "number": "6",
@@ -61,7 +61,7 @@ export default function Project() {
             "description": "An interactive test bank platform for Addis Ababa University students to practice with past exam questions and test their knowledge.",
             "image": "/cs.png",
             "techStack": ["React", "JavaScript", "Firebase", "HTML", "CSS"],
-            "github": "https://github.com/yourusername/aau-test-bank"
+            "github": "https://github.com/edenawoke9/cs-tests"
         },
         {
             "number": "7",
@@ -69,7 +69,7 @@ export default function Project() {
             "description": "A professional and modern corporate website developed for a client, Hunt Software Consultancy, to showcase their services and portfolio.",
             "image": "/hunt.png",
             "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-            "github": "https://github.com/yourusername/hunt-consultancy"
+            "github": "https://www.huntsoftwareconsulting.com"
         }
     ]
 
