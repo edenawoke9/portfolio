@@ -96,7 +96,7 @@ export default function Project() {
         <section className="min-h-screen flex flex-col items-center justify-center bg-black w-full  py-20">
             <div className="max-w-6xl mx-auto px-4">
             <div className="relative">
-                    <h2 className="text-7xl sm:text-[290px] font-serif text-white opacity-40 flex justify-center tracking-tight leading-none">
+                    <h2 className="text-7xl lg:text-[290px] font-serif text-white opacity-40 flex justify-center tracking-tight leading-none">
 
                         PROJECTS
                     </h2>
@@ -139,20 +139,20 @@ export default function Project() {
                                     visibility: isVisible ? 'visible' : 'hidden',
                                 }}
                             >
-                                <div className={`bg-white opacity-70 rounded-3xl p-8 relative min-h-[500px] md:w-[350px] w-[300px]  ml-8 mr-8  group`}>
+                                <div className={`bg-white opacity-70 rounded-3xl p-8 relative min-h-[500px] lg:w-[350px] w-[300px]  ml-8 mr-8  group`}>
                                     {/* Render navigation buttons only for the active (middle) card */}
                                     {offset === 0 && (
                                         <>
                                             <button
                                                 onClick={prevProject}
-                                                className="absolute md:-left-7 left-0 top-1/2 bg-green-900 -translate-y-1/2 -translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow"
+                                                className="absolute lg:-left-7 left-0 top-1/2 bg-black shadow-white  -translate-y-1/2 -translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-black hover:bg-white  transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow-sm"
                                                 aria-label="Previous Project"
                                             >
                                                 &larr;
                                             </button>
                                             <button
                                                 onClick={nextProject}
-                                                className="absolute md:-right-7 right-0 bg-green-900 top-1/2 -translate-y-1/2 translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-white transition-colors z-20 bg-black/80 rounded-full shadow  flex items-center justify-center w-12 h-12"
+                                                className="absolute lg:-right-7 right-0 bg-black shadow-white  top-1/2 -translate-y-1/2 translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-black hover:bg-white  transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow-sm"
                                                 aria-label="Next Project"
                                             >
                                                 &rarr;
