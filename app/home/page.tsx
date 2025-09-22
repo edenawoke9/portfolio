@@ -128,19 +128,19 @@ export default function HomePage() {
       <main className="pt-16 flex flex-col">
      
         {/* Home Section */}
-        <section ref={heroRef} className="relative bg-black z-40 flex flex-row  items-center justify-center w-full min-h-screen gap-8 px-8">
+        <section ref={heroRef} className="relative bg-black z-40 flex  md:flex-row flex-col items-center justify-center w-full min-h-screen gap-8 px-8">
           <div className="flex-1 flex items-center justify-center h-full">
-            <div className='relative md:block hidden w-screen ml-72 flex justify-end  items-center'>
+            <div className='relative md:block  w-screen md:ml-72 ml-0 flex justify-end  items-center'>
                 <SplineScene/>
             </div>
           
             <motion.div 
-              className="text-6xl absolute left-0 md:text-8xl md:ml-20 ml-2 flex flex-col font-extrabold mb-4"
+              className="text-6xl absolute max-sm:bottom-10 left-0 md:text-8xl md:ml-20 ml-2 flex flex-col font-extrabold mb-4"
               style={{ y, opacity }}
             >
               <h1>Minimalist</h1>
               <span className="ml-12">& Creative</span>
-              <span className="md:ml-72 ml-56 text-3xl">Web Developer</span>
+              <span className="md:ml-72 ml-52 max-sm:text-xl text-3xl">Web Developer</span>
             </motion.div>
           </div>
         </section>
