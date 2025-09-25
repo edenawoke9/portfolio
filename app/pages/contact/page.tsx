@@ -27,29 +27,23 @@ export function Component() {
       <div className="absolute inset-0 bg-gradient-to-r from-green-50/20 to-blue-50/20 animate-pulse" />
 
       <div
-        className={`m-auto w-full pt-10 px-6 flex justify-between mb-10 relative z-10 transition-all duration-1000 ease-out ${
+        className={`m-auto w-full  pt-10 px-6 flex justify-between mb-10 relative z-10 transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          <h1 className="text-3xl font-bold md:text-4xl bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent animate-gradient">
+        <div className="animate-fade-in-up w-full"  style={{ animationDelay: "0.2s" }}>
+          <div className="flex w-full md:flex-row flex-col   justify-between">
+            <div>
+            <h1 className="text-3xl font-bold md:text-4xl bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent animate-gradient">
             Contact
+           
           </h1>
-
           <p className="mt-4 text-lg animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             I'd love to hear about your next project or collaboration. Feel free to reach out!
           </p>
-
-          <a
-            href="mailto:awokeeden9@gmail.com"
-            className="mt-8 inline-block rounded-lg px-7 py-3 font-semibold text-black shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-green-50 border border-gray-200 animate-fade-in-up group"
-            style={{ animationDelay: "0.6s" }}
-          >
-            <span className="group-hover:animate-pulse">awokeeden9@gmail.com</span>
-          </a>
-        </div>
-
-        <div
+            </div>
+         
+          <div
           className={`mt-10 transition-all duration-1000 ease-out ${
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
           }`}
@@ -131,6 +125,21 @@ export function Component() {
             </a>
           </div>
         </div>
+          </div>
+          
+
+         
+
+          <a
+            href="mailto:awokeeden9@gmail.com"
+            className="mt-8 inline-block rounded-lg px-7 py-3 font-semibold text-black shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-green-50 border border-gray-200 animate-fade-in-up group"
+            style={{ animationDelay: "0.6s" }}
+          >
+            <span className="group-hover:animate-pulse">awokeeden9@gmail.com</span>
+          </a>
+        </div>
+
+       
       </div>
 
       <footer
