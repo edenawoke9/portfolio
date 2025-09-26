@@ -123,13 +123,9 @@ export function Introduction() {
   const scaleRef = useRef(1)
   const stateRef = useRef<"intro" | "game">("intro")
   const router = useRouter()
-  useEffect(()=>{
-    setTimeout(() => {
-        router.push("/home")
-    }, 20000);
-  })
+ 
 
-  useEffect(() => {
+  useEffect(() => { 
     const canvas = canvasRef.current
     if (!canvas) return
 
