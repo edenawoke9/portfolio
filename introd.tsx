@@ -123,13 +123,9 @@ export function Introduction() {
   const scaleRef = useRef(1)
   const stateRef = useRef<"intro" | "game">("intro")
   const router = useRouter()
-  useEffect(()=>{
-    setTimeout(() => {
-        router.push("/home")
-    }, 20000);
-  })
+ 
 
-  useEffect(() => {
+  useEffect(() => { 
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -387,7 +383,7 @@ export function Introduction() {
         <div className="flex flex-col items-center justify-end mb-24 h-full w-full">
           <button
             onClick={() => {router.push("/home")}}
-            className="relative px-8 py-3 text-white border-2 border-white rounded-2xl overflow-hidden group"
+            className="relative px-8 py-3 text-white border-2  border-white rounded-2xl overflow-hidden group"
           >
             <span className="relative z-10">Continue</span>
             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

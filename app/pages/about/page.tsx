@@ -32,11 +32,11 @@ export default function About() {
     ];
 
     return <div>
-        <div className="flex   ml-8 mt-20 justify-center">
+        <div className="flex md:flex-row flex-col  gap-8   ml-8 mt-20 justify-center">
         <div>
             <h1 className="text-2xl">About</h1>
         </div>
-        <div className={`text-4xl md:text-6xl ml-36  pb-20  font-mono flex flex-wrap`}>
+        <div className={`text-4xl md:text-6xl md:ml-36 ml-0  pb-20  font-mono flex flex-wrap`}>
             {words.map((word, i) => (
                 <span
                     key={i}
