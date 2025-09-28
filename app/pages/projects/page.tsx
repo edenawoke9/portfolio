@@ -145,14 +145,14 @@ export default function Project() {
                                         <>
                                             <button
                                                 onClick={prevProject}
-                                                className="absolute left-0 top-1/2 bg-green-900 -translate-y-1/2 -translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow"
+                                                className="absolute md:-left-7 left-0 top-1/2 bg-green-900 -translate-y-1/2 -translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow"
                                                 aria-label="Previous Project"
                                             >
                                                 &larr;
                                             </button>
                                             <button
                                                 onClick={nextProject}
-                                                className="absolute right-0 bg-green-900 top-1/2 -translate-y-1/2 translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full shadow  flex items-center justify-center w-12 h-12"
+                                                className="absolute md:-right-7 right-0 bg-green-900 top-1/2 -translate-y-1/2 translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-white transition-colors z-20 bg-black/80 rounded-full shadow  flex items-center justify-center w-12 h-12"
                                                 aria-label="Next Project"
                                             >
                                                 &rarr;

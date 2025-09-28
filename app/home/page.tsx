@@ -32,7 +32,7 @@ export default function HomePage() {
     <div className=" bg-black w-screen overflow-x-hidden  text-white">
       
       {/* Navigation Bar */}
-      <nav className="fixed top-0  left-0 right-0 bg-transparent backdrop-blur-sm border-b border-white/10 z-50">
+      <nav className="fixed top-0  left-0 right-0 bg-black/80 backdrop-blur-sm border-b border-white/10 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Name */}
@@ -100,7 +100,7 @@ export default function HomePage() {
         </div>
 
         {/* Mobile menu */}
-        <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+        <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} border-t border-zinc-100 `} id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <button
               onClick={() => scrollToSection('about')}
