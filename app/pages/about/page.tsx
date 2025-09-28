@@ -32,11 +32,11 @@ export default function About() {
     ];
 
     return <div>
-        <div className="flex md:flex-row flex-col  gap-8   ml-8 mt-20 justify-center">
+        <div className="flex lg:flex-row flex-col  gap-8   ml-8 mt-20 justify-center">
         <div>
             <h1 className="text-2xl">About</h1>
         </div>
-        <div className={`text-4xl md:text-6xl md:ml-36 ml-0  pb-20  font-mono flex flex-wrap`}>
+        <div className={`text-4xl lg:text-6xl lg:ml-36 ml-0  pb-20  font-mono flex flex-wrap`}>
             {words.map((word, i) => (
                 <span
                     key={i}
@@ -58,7 +58,7 @@ export default function About() {
                 {techStack.concat(techStack).map((tech, idx) => (
                     <span
                         key={idx}
-                        className="text-xl md:text-2xl font-semibold text-white px-6 py-2 bg-gray-800 rounded-lg shadow mx-2"
+                        className="text-xl lg:text-2xl font-semibold text-white px-6 py-2 bg-gray-800 rounded-lg shadow mx-2"
                     >
                         {tech}
                     </span>
