@@ -94,9 +94,9 @@ export default function Project() {
 
     return (
         <section className="min-h-screen flex flex-col items-center justify-center bg-black w-full  py-20">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-6xl mx-auto px-4">
             <div className="relative">
-                    <h2 className="text-8xl sm:text-[290px] font-serif text-white opacity-40 flex justify-center tracking-tight leading-none">
+                    <h2 className="text-7xl sm:text-[290px] font-serif text-white opacity-40 flex justify-center tracking-tight leading-none">
 
                         PROJECTS
                     </h2>
@@ -139,20 +139,20 @@ export default function Project() {
                                     visibility: isVisible ? 'visible' : 'hidden',
                                 }}
                             >
-                                <div className={`bg-white opacity-70 rounded-3xl p-8 relative min-h-[500px] w-[400px] group`}>
+                                <div className={`bg-white opacity-70 rounded-3xl p-8 relative min-h-[500px] md:w-[350px] w-[300px]  ml-8 mr-8  group`}>
                                     {/* Render navigation buttons only for the active (middle) card */}
                                     {offset === 0 && (
                                         <>
                                             <button
                                                 onClick={prevProject}
-                                                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow"
+                                                className="absolute left-0 top-1/2 bg-green-900 -translate-y-1/2 -translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full flex items-center justify-center w-12 h-12 shadow"
                                                 aria-label="Previous Project"
                                             >
                                                 &larr;
                                             </button>
                                             <button
                                                 onClick={nextProject}
-                                                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full shadow  flex items-center justify-center w-12 h-12"
+                                                className="absolute right-0 bg-green-900 top-1/2 -translate-y-1/2 translate-x-1/2 text-white text-3xl font-mono p-2 hover:text-gray-600 transition-colors z-20 bg-black/80 rounded-full shadow  flex items-center justify-center w-12 h-12"
                                                 aria-label="Next Project"
                                             >
                                                 &rarr;
@@ -165,7 +165,7 @@ export default function Project() {
                                     </div>
                                     {/* Content Container */}
                                     <div className="relative z-10 h-full flex flex-col">
-                                        {/* Image Card */}
+                                       
                                         <div className="bg-white/90 rounded-2xl p-4 shadow-lg">
                                             <div className="aspect-[4/3] relative overflow-hidden rounded-lg">
                                                <Image src={project.image} width={200} height={200} alt="project.name"  className='w-full h-full object-contain opacity-100'/>
