@@ -93,7 +93,7 @@ export default function Project() {
     };
 
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center bg-black w-full  py-20">
+        <section className="min-h-screen flex flex-col items-center justify-center bg-black w-full ">
             <div className="max-w-6xl mx-auto px-4">
             <div className="relative">
                     <h2 className="text-7xl lg:text-[290px] font-serif text-white opacity-40 flex justify-center tracking-tight leading-none">

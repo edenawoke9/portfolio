@@ -55,7 +55,7 @@ export default function About() {
     ];
 
     return <div ref={sectionRef}>
-        <div className="flex  lg:flex-row flex-col gap-4  lg:m-20 ml-4  mb-56 justify-center">
+        <div className="flex  lg:flex-row flex-col gap-4  lg:m-20 ml-4  justify-center">
         <div>
             <h1 className="text-2xl">About</h1>
         </div>
@@ -76,7 +76,7 @@ export default function About() {
     </div>
    
     {/* Frontend Stack - Left to Right */}
-    <div className="w-full overflow-hidden bg-transparent-4 mt-20">
+    <div className="w-full overflow-hidden bg-transparent-4  mt-52 ">
         <div className="relative">
             <div className="flex gap-8 animate-scroll-frontend whitespace-nowrap">
                 {/* First set */}
