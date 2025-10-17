@@ -37,7 +37,7 @@ export default function BlogPage() {
     };
 
     return (
-        <section className=" h-64  text-white  md:py-20 px-4 md:px-8">
+        <section className=" h-64  text-white  md:py:16 px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <motion.div 
