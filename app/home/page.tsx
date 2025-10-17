@@ -5,8 +5,51 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import About from '../pages/about/page'
 import Project from '../pages/projects/page'
+import Blog from '../pages/blog/page'
 import Contact from '../pages/contact/page'
-import SplineScene from '../components/SplineScene'
+import  BubbleMenu from '../../components/BubbleMenu'
+
+
+const items = [
+  {
+    label: 'home',
+    href: '#',
+    ariaLabel: 'Home',
+    rotation: -8,
+    hoverStyles: { bgColor: '#4ade80', textColor: '#ffffff' }
+  },
+  {
+    label: 'about',
+    href: '#about',
+    ariaLabel: 'About',
+    rotation: 8,
+    hoverStyles: { bgColor: '##4ade80', textColor: '#ffffff' }
+  },
+  {
+    label: 'projects',
+    href: '#projects',
+    ariaLabel: 'Projects',
+    rotation: 8,
+    hoverStyles: { bgColor: '#4ade80', textColor: '#ffffff' }
+  },
+  {
+    label: 'blog',
+    href: '#blog',
+    ariaLabel: 'Blog',
+    rotation: 8,
+    hoverStyles: { bgColor: '#4ade80', textColor: '#ffffff' }
+  },
+  {
+    label: 'contact',
+    href: '#contact',
+    ariaLabel: 'Contact',
+    rotation: -8,
+    hoverStyles: { bgColor: '#4ade80', textColor: '#ffffff' }
+  }
+];
+
+
+
 
 export default function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -32,7 +75,7 @@ export default function HomePage() {
     <div className=" bg-black w-screen overflow-x-hidden  text-white">
       
       {/* Navigation Bar */}
-      <nav className="fixed top-0  left-0 right-0 bg-black/80 backdrop-blur-sm  z-50">
+      <nav className="fixed top-0  left-0 right-0 bg-transparent border-b-transparent backdrop-blur-sm  z-50">
         <div className="max-w-7xl mx-auto px-4 lg:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Name */}
@@ -45,102 +88,56 @@ export default function HomePage() {
               </button>
             </div>
             
-           
-            <div className="hidden lg:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="text-white/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                >
-                  About Me
-                </button>
-                <button 
-                  onClick={() => scrollToSection('projects')}
-                  className="text-white/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                >
-                  Projects
-                </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="text-white/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                >
-                  Contact
-                </button>
-              </div>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="lg:hidden">
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-white/80 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                aria-controls="mobile-menu"
-                aria-expanded={isMobileMenuOpen}
-              >
-                <span className="sr-only">Open main menu</span>
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} border-t border-zinc-50/20 `} id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 lg:px-3">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-white/80 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium"
-            >
-              About Me
-            </button>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="text-white/80 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="text-white/80 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium"
-            >
-              Contact
-            </button>
+            {/* Navigation Links */}
+              <BubbleMenu
+                onMenuClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className=""
+                style={{}}
+                items={items}
+                menuAriaLabel="Toggle navigation"
+                menuBg="transparent"
+                menuContentColor="white"
+                useFixedPosition={false}
+                animationEase="back.out(1.5)"
+                animationDuration={0.5}
+                staggerDelay={0.12}
+              />
           </div>
         </div>
       </nav>
+       
 
       {/* Main Content */}
-      <main className="pt-16 flex flex-col">
+      <main className=" flex flex-col">
      
         {/* Home Section */}
-        <section ref={heroRef} className="relative bg-black z-40 flex  lg:flex-row flex-col items-center justify-center w-full min-h-screen gap-8 px-8">
-          <div className="flex-1 flex items-center justify-center h-full">
-            <div className='relative   w-screen lg:ml-72 ml-0 flex justify-end  items-center'>
-                <SplineScene/>
-            </div>
+        <section id="home" ref={heroRef} className="relative bg-black z-40 flex flex-row items-center justify-center w-screen min-h-screen gap-8 px-8 overflow-hidden">
+         
+           
+            <div className='absolute md top-0 right-0 md:-right-20 w-full h-screen z-10 '>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                
+                className="w-full   h-full object-cover rounded-lg"
+                onError={(e) => console.error('Video error:', e)}
+                onLoadStart={() => console.log('Video loading started')}
+                onCanPlay={() => console.log('Video can play')}
+              >
+                <source src="/eo.mp4" type="video/mp4" />
+                <div className="text-white p-4">Video not supported or failed to load</div>
+              </video>
+            
           
             <motion.div 
-              className="text-6xl absolute max-lg:bottom-10 left-0 lg:text-8xl lg:ml-20 ml-2 flex flex-col font-extrabold mb-4"
+              className="text-6xl md:text-8xl absolute left-0  md:top-1/3 top-3/4  ml-8 md:ml-20 flex flex-col font-semibold mb-4 z-20"
               style={{ y, opacity }}
             >
-              <h1>Minimalist</h1>
-              <span className="ml-12">& Creative</span>
-              <span className="lg:ml-72 ml-52 max-lg:text-xl text-3xl">Web Developer</span>
+              <h1 className="text-white   -ml-4">Minimalist</h1>
+              <span className="ml-6 md:ml-12 text-white">& Creative</span>
+              <span className="ml-32 md:ml-72 text-2xl md:text-3xl text-white/80">Web Developer</span>
             </motion.div>
           </div>
         </section>
@@ -156,6 +153,11 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <section id="blog" className="relative min-h-[60vh] md:min-h-[70vh] bg-black z-40 py-12 md:py-20">
+          <Blog />
+        </section>
+
         <footer
           id="contact"
           
@@ -168,6 +170,8 @@ export default function HomePage() {
         
         
       </main>
-    </div>
+   
+  
+  </div>
   )
 } 

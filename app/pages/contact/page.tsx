@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 
 export default function Contact() {
   return (
-    <section className="relative z-10 h-96 overflow-hidden">
+    <section className="relative z-10 h-[500px] flex items-center justify-center overflow-hidden">
       {/* Background Component */}
-      <div className="fixed bottom-0 left-0 w-full">
+      <div className="fixed  bottom-0 left-0 w-full">
         <Component />
       </div>
       {/* Overlay and Foreground Content */}
@@ -22,16 +22,16 @@ export function Component() {
   }, [])
 
   return (
-    <div className="relative flex flex-col text-black bg-white/80 backdrop-blur-sm">
+    <div className="relative flex flex-col w-screen justify-center bg-white items-center text-black   p-4 md:p-20  backdrop-blur-sm">
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-50/20 to-blue-50/20 animate-pulse" />
+      <div className="absolute w-screen inset-0 bg-gradient-to-r from-green-50/20 to-blue-50/20 animate-pulse" />
 
       <div
-        className={`m-auto w-full  pt-10 px-6 flex justify-between mb-10 relative z-10 transition-all duration-1000 ease-out ${
+        className={` w-full   flex justify-between mb-10 relative z-10 transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="animate-fade-in-up w-full"  style={{ animationDelay: "0.2s" }}>
+        <div className="animate-fade-in-up w-full b"  style={{ animationDelay: "0.2s" }}>
           <div className="flex w-full md:flex-row flex-col   justify-between">
             <div>
             <h1 className="text-3xl font-bold md:text-4xl bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent animate-gradient">
@@ -51,11 +51,11 @@ export function Component() {
         >
           <span className="mb-2 block font-medium text-gray-700 animate-fade-in">Find me on:</span>
 
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-6">
             <a
               href="@Panther_a"
               aria-label="Telegram"
-              className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-500 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
+              className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-400 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
               style={{ animationDelay: "1s" }}
             >
               <svg
@@ -79,7 +79,7 @@ export function Component() {
             <a
               href="https://github.com/edenawoke9"
               aria-label="Github"
-              className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-500 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
+              className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-400 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
               style={{ animationDelay: "1.2s" }}
             >
               <svg
@@ -103,7 +103,7 @@ export function Component() {
             <a
               href="https://www.linkedin.com/in/eden-awoke-581495297/"
               aria-label="Linkedin"
-              className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-500 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
+              className="flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-green-400 hover:scale-110 hover:-translate-y-1 group animate-fade-in-left"
               style={{ animationDelay: "1.4s" }}
             >
               <svg

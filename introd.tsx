@@ -149,13 +149,23 @@ export function Introduction() {
       const words = ["HI THIS IS EDEN"]
 
       const calculateWordWidth = (word: string, pixelSize: number) => {
-        return (
-          word.split("").reduce((width, letter) => {
+        let totalWidth = 0
+        const letters = word.split("")
+        
+        for (let i = 0; i < letters.length; i++) {
+          const letter = letters[i]
+          if (letter === " ") {
+            totalWidth += WORD_SPACING * pixelSize
+          } else {
             const letterWidth = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]?.[0]?.length ?? 0
-            return width + letterWidth * pixelSize + LETTER_SPACING * pixelSize
-          }, 0) -
-          LETTER_SPACING * pixelSize
-        )
+            totalWidth += letterWidth * pixelSize
+            if (i < letters.length - 1 && letters[i + 1] !== " ") {
+              totalWidth += LETTER_SPACING * pixelSize
+            }
+          }
+        }
+        
+        return totalWidth
       }
 
       const totalWidthLarge = calculateWordWidth(words[0], LARGE_PIXEL_SIZE)
@@ -175,24 +185,36 @@ export function Introduction() {
 
         let startX = (canvas.width - totalWidth) / 2
 
-        word.split(" ").forEach((subWord) => {
-          subWord.split("").forEach((letter) => {
-            const pixelMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]
-            if (!pixelMap) return
+        const letters = word.split("")
+        
+        for (let letterIndex = 0; letterIndex < letters.length; letterIndex++) {
+          const letter = letters[letterIndex]
+          
+          if (letter === " ") {
+            startX += WORD_SPACING * pixelSize
+            continue
+          }
+          
+          const pixelMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]
+          if (!pixelMap) continue
 
-            for (let i = 0; i < pixelMap.length; i++) {
-              for (let j = 0; j < pixelMap[i].length; j++) {
-                if (pixelMap[i][j]) {
-                  const x = startX + j * pixelSize
-                  const y = startY + i * pixelSize
-                  pixelsRef.current.push({ x, y, size: pixelSize, hit: false })
-                }
+          for (let i = 0; i < pixelMap.length; i++) {
+            for (let j = 0; j < pixelMap[i].length; j++) {
+              if (pixelMap[i][j]) {
+                const x = startX + j * pixelSize
+                const y = startY + i * pixelSize
+                pixelsRef.current.push({ x, y, size: pixelSize, hit: false })
               }
             }
-            startX += (pixelMap[0].length + LETTER_SPACING) * pixelSize
-          })
-          startX += WORD_SPACING * pixelSize
-        })
+          }
+          
+          startX += pixelMap[0].length * pixelSize
+          
+          // Add letter spacing only if not the last letter and next letter isn't a space
+          if (letterIndex < letters.length - 1 && letters[letterIndex + 1] !== " ") {
+            startX += LETTER_SPACING * pixelSize
+          }
+        }
       })
 
       // Initialize ball position near the top right corner
@@ -321,13 +343,11 @@ export function Introduction() {
       ctx.fillStyle = BACKGROUND_COLOR
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      if (stateRef.current === "intro") {
-        // Draw the pixel text only in intro state
-        pixelsRef.current.forEach((pixel) => {
-          ctx.fillStyle = pixel.hit ? HIT_COLOR : COLOR
-          ctx.fillRect(pixel.x, pixel.y, pixel.size, pixel.size)
-        })
-      }
+      // Draw the pixel text in both intro and game states
+      pixelsRef.current.forEach((pixel) => {
+        ctx.fillStyle = pixel.hit ? HIT_COLOR : COLOR
+        ctx.fillRect(pixel.x, pixel.y, pixel.size, pixel.size)
+      })
 
       ctx.fillStyle = BALL_COLOR
       ctx.beginPath()
@@ -351,8 +371,7 @@ export function Introduction() {
     canvas.addEventListener("click", () => {
       if (stateRef.current === "intro") {
         stateRef.current = "game"
-        // Reset the game state for a fresh start
-        pixelsRef.current = []
+        // Don't clear pixels - keep the text visible during gameplay
         // Initialize ball position in the center
         const BALL_SPEED = 6 * scaleRef.current
         ballRef.current = {
@@ -379,18 +398,15 @@ export function Introduction() {
         className="fixed top-0 left-0 w-full h-full"
         aria-label="Introduction: Fullscreen Pong game with pixel text"
       />
-      <div className="  h-screen  flex items-center justify-center ">
-        <div className="flex flex-col items-center justify-end mb-24 h-full w-full">
+      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center pb-24">
+        <div className="relative">
           <button
             onClick={() => {router.push("/home")}}
-            className="relative px-8 py-3 text-white border-2  border-white rounded-2xl overflow-hidden group"
+            className="relative px-8 py-3 text-white border-2 border-white rounded-2xl overflow-hidden group"
           >
             <span className="relative z-10">Continue</span>
             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
-          <div className="absolute -inset-1 rounded-2xl">
-            <div className="absolute inset-0 border-2 border-white rounded-2xl animate-spin-slow"></div>
-          </div>
         </div>
       </div>
     </div>
